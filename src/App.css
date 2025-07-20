@@ -1,0 +1,151 @@
+.portfolio-container {
+  min-height: 100vh;
+  background: #fff6fa;
+  color: #3b444b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  font-family: 'Segoe UI', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+}
+
+.portfolio-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.portfolio-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #3b444b;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.portfolio-description {
+  font-size: 1.2rem;
+  color: #a08fa3;
+  margin-bottom: 0;
+}
+
+.home-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #fff6fa;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+}
+
+.scroll-text {
+  font-size: 1rem;
+  color: #a08fa3;
+  margin-bottom: 0.2rem;
+}
+
+.arrow-down {
+  font-size: 1.5rem;
+  color: #3b444b;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+.portfolio-projects {
+  width: 100%;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(59, 68, 75, 0.07);
+  padding: 2rem 1.5rem 2.5rem 1.5rem;
+  margin-top: 0;
+}
+
+.projects-heading {
+  color: #3b444b;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #fff6fa;
+  border: 1px solid #f3e6ef;
+  border-radius: 1rem;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 2px 8px 0 rgba(59, 68, 75, 0.04);
+  transition: box-shadow 0.2s;
+}
+.project-card:hover {
+  box-shadow: 0 4px 16px 0 rgba(59, 68, 75, 0.10);
+}
+
+@media (max-width: 900px) {
+  .portfolio-projects {
+    max-width: 95vw;
+    padding: 1.2rem 0.5rem 2rem 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-container {
+    padding: 1.2rem 0.2rem;
+  }
+  .home-section {
+    padding: 1.5rem 0.2rem 0.5rem 0.2rem;
+    min-height: 90vh;
+  }
+  .portfolio-header {
+    margin-bottom: 1.2rem;
+  }
+  .portfolio-title {
+    font-size: 1.5rem;
+  }
+  .portfolio-description {
+    font-size: 1rem;
+  }
+  .projects-heading {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .projects-list {
+    gap: 1rem;
+  }
+  .project-card {
+    padding: 0.8rem 0.5rem;
+    font-size: 0.98rem;
+  }
+  .scroll-indicator {
+    bottom: 1.2rem;
+  }
+  .arrow-down {
+    font-size: 1.1rem;
+  }
+}
+
