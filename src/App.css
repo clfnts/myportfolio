@@ -666,7 +666,6 @@ body {
   bottom: 0;
   right: 20px;
   z-index: 1000;
-  pointer-events: none;
   display: flex;
   align-items: flex-end;
 }
@@ -811,6 +810,31 @@ body {
   font-family: inherit;
   font-weight: 600;
   letter-spacing: 0.5px;
+}
+
+.floating-move-gif {
+  position: fixed;
+  left: 30px;
+  bottom: 0px;
+  z-index: 1000;
+  transition: transform 0.18s cubic-bezier(.4,1.3,.6,1);
+}
+.floating-move-gif:hover {
+  transform: scale(1.12);
+}
+.floating-move-gif img {
+  width: 220px;
+  height: auto;
+  display: block;
+}
+@media (max-width: 600px) {
+  .floating-move-gif {
+    left: 10px;
+    bottom: 0px;
+  }
+  .floating-move-gif img {
+    width: 120px;
+  }
 }
 
 

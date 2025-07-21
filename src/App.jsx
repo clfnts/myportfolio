@@ -1,5 +1,6 @@
 import './App.css'
 import { useState, useEffect, useRef } from 'react'
+import confetti from 'canvas-confetti'
 
 function App() {
   // Smooth scroll handler
@@ -33,6 +34,22 @@ function App() {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, []);
+
+  // Confetti handler for move.GIF
+  const handleMoveGifClick = () => {
+    confetti({
+      particleCount: 120,
+      spread: 90,
+      origin: { x: 0.08, y: 0.85 }, // further left above the gif
+      zIndex: 2000,
+    });
+  };
+
+  // Toggle cartoon image
+  const [cartoonSrc, setCartoonSrc] = useState('cartoon.PNG');
+  const handleCartoonClick = () => {
+    setCartoonSrc(src => src === 'cartoon.PNG' ? 'cartoon2.PNG' : 'cartoon.PNG');
+  };
 
   return (
     <>
@@ -127,7 +144,14 @@ function App() {
             <div className="project-card">
               <h3>SHUTL. (Capstone Project)</h3>
               <p>Shuttle locator web app with real-time tracking and analytics (MERN stack).</p>
-              <button className="details-btn">View Details</button>
+              <a
+                className="details-btn"
+                href="https://www.canva.com/design/DAGiCePheCs/oS3cmU9BKUXPZgZ4WMR8LQ/edit?utm_content=DAGiCePheCs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Details
+              </a>
             </div>
             <div className="project-card">
               <h3>Wing 'N Grill</h3>
@@ -163,8 +187,11 @@ function App() {
           </div>
         </footer>
       </div>
-      <div className="floating-cartoon">
-        <img src="cartoon.PNG" alt="Cartoon" />
+      <div className="floating-cartoon" onClick={handleCartoonClick} style={{ cursor: 'pointer' }}>
+        <img src={cartoonSrc} alt="Cartoon" />
+      </div>
+      <div className="floating-move-gif" onClick={handleMoveGifClick} style={{ cursor: 'pointer' }}>
+        <img src="move.GIF" alt="Move GIF" />
       </div>
       <img src="Dolcielo.png" alt="Dolcielo Fuentes Logo" className="floating-logo-topright" />
     </>
