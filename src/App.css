@@ -123,6 +123,7 @@ body {
   padding-bottom: 1rem;
   margin: 0;
   max-width: none;
+  margin-bottom: 10rem !important;
 }
 
 .project-card {
@@ -741,7 +742,7 @@ body {
 .projects-heading, .about-heading {
   font-size: 2rem;
   color: #a60000;
-  margin-top: 3.5rem;
+  margin-top: 0 !important;
   margin-bottom: 3.5rem;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -799,8 +800,8 @@ body {
 }
 
 #projects-section {
-  margin-top: 12rem;
-  margin-bottom: 12rem;
+  margin-top: 0 !important;
+  margin-bottom: 16rem !important;
 }
 
 .tech-stack {
@@ -845,6 +846,10 @@ body {
   .floating-move-gif img {
     width: 120px;
   }
+}
+
+.portfolio-container {
+  padding-bottom: 300px !important;
 }
 
 

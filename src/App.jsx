@@ -249,6 +249,7 @@ function App() {
             ))}
           </div>
           <div style={{
+            display: 'none',
             width: '100%',
             maxWidth: '1200px',
             height: '60px',
@@ -256,7 +257,6 @@ function App() {
             borderRadius: '1.2rem',
             margin: '2rem auto 0 auto',
             boxShadow: '0 2px 12px 0 rgba(0,0,0,0.10)',
-            display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#a60000',
