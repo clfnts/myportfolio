@@ -99,6 +99,11 @@ function App() {
             Design Tools: Figma, Adobe Photoshop, Adobe Illustrator, and Canva.<br/>
             Office Tools: Word, Excel, and PowerPoint<br/><br/>
             <b>Soft Skills:</b> Problem-Solving, Collaboration, Leadership, Time Management, Adaptability, Learning Agility, Creativity
+            <br/><br/>
+            <b>Social Media:</b><br/>
+            <a href="https://www.linkedin.com/in/dolcielo-fuentes-75554a33a/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+            <a href="https://github.com/clfnts" target="_blank" rel="noopener noreferrer">GitHub</a> |
+            <a href="/resume.pdf" download>Resume (PDF)</a>
           </p>
         </section>
         <section className="fullscreen-section" id="projects-section" style={{paddingTop: 0, paddingLeft: '2rem', paddingRight: '2rem'}}>
