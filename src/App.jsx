@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 function App() {
   // Smooth scroll handler
@@ -11,21 +11,52 @@ function App() {
   };
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home-section');
+  const timerRef = useRef(null);
   const handleMenuClick = () => setMenuOpen((open) => !open);
   const handleNavClick = (id) => {
     scrollToSection(id);
+    setActiveSection(id);
     setMenuOpen(false);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setActiveSection(''), 600);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setActiveSection('');
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
   return (
     <>
       <div className="portfolio-container">
         <header className="site-header">
-          <span className="site-title">Dolcielo Fuentes</span>
           <nav className="site-nav">
-            <button onClick={() => scrollToSection('home-section')}>Home</button>
-            <button onClick={() => scrollToSection('about-section')}>About</button>
-            <button onClick={() => scrollToSection('projects-section')}>Projects</button>
+            <button
+              className={activeSection === 'home-section' ? 'active' : ''}
+              onClick={() => handleNavClick('home-section')}
+            >
+              Home
+            </button>
+            <button
+              className={activeSection === 'about-section' ? 'active' : ''}
+              onClick={() => handleNavClick('about-section')}
+            >
+              About
+            </button>
+            <button
+              className={activeSection === 'projects-section' ? 'active' : ''}
+              onClick={() => handleNavClick('projects-section')}
+            >
+              Projects
+            </button>
           </nav>
           <button className="hamburger" onClick={handleMenuClick} aria-label="Open menu">
             <span className="bar"></span>
@@ -46,9 +77,7 @@ function App() {
               <h1 className="portfolio-title">Dolcielo B. Fuentes</h1>
               <p className="portfolio-description">Information Technology Professional | Passionate about programming, web development, and building robust, user-friendly applications.</p>
             </div>
-            <div className="profile-pic-placeholder">
-              <img src="profile.jpg" alt="Profile" className="profile-pic" />
-            </div>
+            <img src="profile.PNG" alt="Profile" className="profile-pic" />
           </div>
         </section>
         <section className="fullscreen-section" id="about-section" style={{marginBottom: '4rem'}}>
@@ -73,8 +102,8 @@ function App() {
           </p>
         </section>
         <section className="fullscreen-section" id="projects-section" style={{paddingTop: 0, paddingLeft: '2rem', paddingRight: '2rem'}}>
-          <div style={{ width: '100%', textAlign: 'center', margin: '0 0 0.5rem 0', fontWeight: 'bold', fontSize: '1.1rem', letterSpacing: '1px', color: '#0e1111', textTransform: 'uppercase' }}>Projects</div>
-          <div className="projects-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '2rem', width: '100%', paddingBottom: '1rem' }}>
+          <div className="projects-heading">Projects</div>
+          <div className="projects-list">
             <div className="project-card">
               <h3>Self-Employed Business Owner</h3>
               <p>Managed a successful Shopee account for handmade products and digital stickers.</p>
@@ -118,16 +147,21 @@ function App() {
           </div>
         </section>
         <footer className="site-footer">
-          <div className="contact-me">
-            <h3>Contact Me</h3>
-            <p>Email: dolcielo.fuentes@email.com</p>
-            <p>LinkedIn: linkedin.com/in/dolcielofuentes | GitHub: github.com/dolcielofuentes</p>
+          <div style={{ textAlign: 'center', color: '#fff', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '1.2rem', fontSize: '1rem' }}>
+            <span>Email: dolcielo.fuentes@email.com</span>
+            <span style={{fontWeight: 'bold'}}>|</span>
+            <span>LinkedIn: linkedin.com/in/dolcielofuentes</span>
+            <span style={{fontWeight: 'bold'}}>|</span>
+            <span>GitHub: github.com/dolcielofuentes</span>
+            <span style={{fontWeight: 'bold'}}>|</span>
+            <span>Technologies used: Vite, React, JavaScript, CSS</span>
           </div>
         </footer>
       </div>
       <div className="floating-cartoon">
         <img src="cartoon.PNG" alt="Cartoon" />
       </div>
+      <img src="Dolcielo.png" alt="Dolcielo Fuentes Logo" className="floating-logo-topright" />
     </>
   )
 }
